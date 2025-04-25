@@ -1,0 +1,33 @@
+{
+  "name": "tinyman-mcp",
+  "version": "1.0.0",
+  "description": "Tinyman Model Context Protocol Implementation",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces",
+    "clean": "npm run clean --workspaces"
+  },
+  "keywords": [
+    "tinyman",
+    "mcp",
+    "blockchain",
+    "algorand",
+    "amm",
+    "dex"
+  ],
+  "author": "GoPlausible",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/qrcode": "^1.5.5",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "algosdk": "2.9.0",
+    "qrcode": "^1.5.4",
+    "@tinymanorg/tinyman-js-sdk":"^4.1.5"
+  }
+}
