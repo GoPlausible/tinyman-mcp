@@ -149,8 +149,6 @@ npm install
 # Build
 npm run build
 
-# Run tests
-npm test
 
 # Clean build artifacts
 npm run clean
