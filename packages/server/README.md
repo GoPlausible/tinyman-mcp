@@ -128,13 +128,6 @@ It uses stdio for communication as per MCP protocol specifications.
 
 ## Environment Variables
 
-Create a `.env` file based on `.env.example`:
-
-```bash
-cp .env.example .env
-```
-
-Environment variables:
 - `ALGORAND_NODE`: Algorand node URL
 - `ALGORAND_TOKEN`: Algorand node API token
 - `ALGORAND_PORT`: Algorand node port
