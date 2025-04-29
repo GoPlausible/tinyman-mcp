@@ -11,21 +11,33 @@ This project provides MCP tools and resources for interacting with Tinyman AMM p
 
 ## Features
 
-The MCP server provides tools for:
+The MCP server provides the following tools:
 
-- Pool Management
-  - Pool creation and initialization
-  - Pool analytics and statistics
-  - Pool information retrieval
-  
-- Trading Operations  
-  - Asset swaps
-  - Liquidity provision
-  - Liquidity removal
-  
-- Asset Management
-  - Asset opt-in
-  - Validator opt-in
+### Pool Management
+- `tinyman_get_pool`: Retrieve detailed information about a specific pool
+- `tinyman_get_pool_analytics`: Get analytics and statistics for a pool
+- `tinyman_get_pool_creation_quote`: Generate quote for creating a new pool
+
+### Trading Operations
+- `tinyman_get_swap_quote`: Generate quotes for asset swaps with support for:
+  - Fixed input amount swaps
+  - Fixed output amount swaps
+  - Slippage calculations
+
+### Liquidity Management
+- `tinyman_get_liquidity_quote`: Generate quotes for adding liquidity
+  - Supports single and dual asset deposits
+  - Calculates expected pool tokens
+- `tinyman_get_remove_liquidity_quote`: Generate quotes for removing liquidity
+  - Supports proportional and single-asset withdrawals
+  - Calculates expected asset returns
+
+### Asset Operations
+- `tinyman_get_asset_optin_quote`: Generate quote for opting into an asset
+- `tinyman_get_validator_optin_quote`: Generate quote for opting into a validator
+- `tinyman_get_validator_optout_quote`: Generate quote for opting out of a validator
+
+All tools support both Tinyman v1.1 and v2 protocols, with v2 being the default version where applicable.
 
 ## Installation
 

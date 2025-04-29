@@ -85,23 +85,75 @@ For example on MACOS and Claud, the path would be something like this:
 ```
 ## Features
 
-### API Tools
+### Available Tools
 
-The server provides several categories of API tools:
+The server provides the following MCP tools:
 
 #### Pool Management
-- Pool creation and initialization
-- Pool analytics and statistics
-- Pool information retrieval
+- `tinyman_get_pool`
+  - Retrieves detailed information about a specific liquidity pool
+  - Includes current reserves, fees, and protocol version
+  - Parameters: asset1Id, asset2Id, version (optional, defaults to v2)
+
+- `tinyman_get_pool_analytics`
+  - Gets analytics and statistics for a pool
+  - Includes volume, TVL, and price history
+  - Parameters: poolAddress, timeframe (optional)
+
+- `tinyman_get_pool_creation_quote`
+  - Generates quote for creating a new liquidity pool
+  - Calculates required minimum liquidity
+  - Parameters: asset1Id, asset2Id, version (optional)
 
 #### Trading Operations
-- Asset swaps with quote calculation
-- Liquidity provision with quote calculation
-- Liquidity removal with quote calculation
+- `tinyman_get_swap_quote`
+  - Generates quotes for asset swaps
+  - Supports fixed input and fixed output modes
+  - Calculates price impact and slippage
+  - Parameters:
+    - amount
+    - assetIn
+    - assetOut
+    - slippagePct (optional)
+    - fixedMode (input/output)
+    - version (optional)
 
-#### Asset Management
-- Asset opt-in transaction creation
-- Validator opt-in transaction creation
+#### Liquidity Management
+- `tinyman_get_liquidity_quote`
+  - Generates quotes for adding liquidity
+  - Supports single and dual asset deposits
+  - Calculates expected pool tokens
+  - Parameters:
+    - asset1Amount
+    - asset2Amount
+    - asset1Id
+    - asset2Id
+    - slippagePct (optional)
+
+- `tinyman_get_remove_liquidity_quote`
+  - Generates quotes for removing liquidity
+  - Supports proportional and single-asset withdrawals
+  - Calculates expected asset returns
+  - Parameters:
+    - poolTokenAmount
+    - poolAddress
+    - singleAssetMode (optional)
+    - slippagePct (optional)
+
+#### Asset Operations
+- `tinyman_get_asset_optin_quote`
+  - Generates quote for opting into an asset
+  - Parameters: assetId
+
+- `tinyman_get_validator_optin_quote`
+  - Generates quote for opting into a validator
+  - Parameters: validatorAppId
+
+- `tinyman_get_validator_optout_quote`
+  - Generates quote for opting out of a validator
+  - Parameters: validatorAppId
+
+All tools support both Tinyman v1.1 and v2 protocols, with v2 being the default version where applicable. Tools return standardized quote objects that can be used to construct and submit transactions.
 
 ### Resources
 
