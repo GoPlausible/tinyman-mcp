@@ -5,7 +5,7 @@ import { env } from '../../../env.js';
 
 export const bootstrapTools: Tool[] = [
   {
-    name: 'api_tinyman_get_pool_creation_quote',
+    name: 'tinyman_get_pool_creation_quote',
     description: 'Get quote for creating a new Tinyman pool',
     inputSchema: {
       type: 'object',
@@ -43,7 +43,7 @@ export async function handleBootstrapTools(args: any): Promise<any> {
     version = 'v2'
   } = args;
 
-  if (name === 'api_tinyman_get_pool_creation_quote') {
+  if (name === 'tinyman_get_pool_creation_quote') {
     try {
       const quote = await (version === 'v2'
         ? Bootstrap.v2.generateTxns({

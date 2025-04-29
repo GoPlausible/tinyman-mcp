@@ -5,7 +5,7 @@ import { env } from '../../../env.js';
 
 export const optInTools: Tool[] = [
   {
-    name: 'api_tinyman_get_asset_optin_quote',
+    name: 'tinyman_get_asset_optin_quote',
     description: 'Get quote for opting into a Tinyman pool token',
     inputSchema: {
       type: 'object',
@@ -23,7 +23,7 @@ export const optInTools: Tool[] = [
     }
   },
   {
-    name: 'api_tinyman_get_validator_optin_quote',
+    name: 'tinyman_get_validator_optin_quote',
     description: 'Get quote for opting into Tinyman validator app',
     inputSchema: {
       type: 'object',
@@ -43,7 +43,7 @@ export const optInTools: Tool[] = [
     }
   },
   {
-    name: 'api_tinyman_get_validator_optout_quote',
+    name: 'tinyman_get_validator_optout_quote',
     description: 'Get quote for opting out of Tinyman validator app',
     inputSchema: {
       type: 'object',
@@ -70,7 +70,7 @@ export async function handleOptInTools(args: any): Promise<any> {
   try {
     let quote;
     
-    if (name === 'api_tinyman_get_asset_optin_quote') {
+    if (name === 'tinyman_get_asset_optin_quote') {
       const { assetId } = args;
       quote = await generateOptIntoAssetTxns({
         client: algodClient,
@@ -78,7 +78,7 @@ export async function handleOptInTools(args: any): Promise<any> {
         initiatorAddr
       });
     }
-    else if (name === 'api_tinyman_get_validator_optin_quote') {
+    else if (name === 'tinyman_get_validator_optin_quote') {
       quote = await generateOptIntoValidatorTxns({
         client: algodClient,
         network: env.algorand_network as SupportedNetwork,
@@ -86,7 +86,7 @@ export async function handleOptInTools(args: any): Promise<any> {
         initiatorAddr
       });
     }
-    else if (name === 'api_tinyman_get_validator_optout_quote') {
+    else if (name === 'tinyman_get_validator_optout_quote') {
       quote = await generateOptOutOfValidatorTxns({
         client: algodClient,
         network: env.algorand_network as SupportedNetwork,

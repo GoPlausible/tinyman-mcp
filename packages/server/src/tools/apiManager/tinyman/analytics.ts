@@ -5,7 +5,7 @@ import { env } from '../../../env.js';
 
 export const analyticsTools: Tool[] = [
   {
-    name: 'api_tinyman_get_pool_analytics',
+    name: 'tinyman_get_pool_analytics',
     description: 'Get analytics for a Tinyman pool',
     inputSchema: {
       type: 'object',
@@ -38,7 +38,7 @@ export async function handleAnalyticsTools(args: any): Promise<any> {
     version = 'v2'
   } = args;
 
-  if (name === 'api_tinyman_get_pool_analytics') {
+  if (name === 'tinyman_get_pool_analytics') {
     try {
       // Get pool information first
       const poolInfo = await (version === 'v2' 

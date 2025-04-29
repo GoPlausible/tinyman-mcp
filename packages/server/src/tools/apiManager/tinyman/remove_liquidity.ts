@@ -16,7 +16,7 @@ async function getAssetDecimals(assetId: number): Promise<number> {
 
 export const removeLiquidityTools: Tool[] = [
   {
-    name: 'api_tinyman_get_remove_liquidity_quote',
+    name: 'tinyman_get_remove_liquidity_quote',
     description: 'Get quote for removing liquidity from a pool',
     inputSchema: {
       type: 'object',
@@ -71,7 +71,7 @@ export async function handleRemoveLiquidityTools(args: any): Promise<any> {
     version = 'v2'
   } = args;
 
-  if (name === 'api_tinyman_get_remove_liquidity_quote') {
+  if (name === 'tinyman_get_remove_liquidity_quote') {
     try {
       // Get pool information first
       const poolInfo = await (version === 'v2' 
@@ -139,7 +139,7 @@ export async function handleRemoveLiquidityTools(args: any): Promise<any> {
         });
       }
 
-      return {
+      const result = {
         version,
         asset1Id,
         asset2Id,
@@ -147,6 +147,11 @@ export async function handleRemoveLiquidityTools(args: any): Promise<any> {
         singleAssetMode,
         quote
       };
+      
+      // Convert BigInt values to strings before returning
+      return JSON.parse(JSON.stringify(result, (_, value) =>
+        typeof value === 'bigint' ? value.toString() : value
+      ));
     } catch (error) {
       throw new McpError(
         ErrorCode.InternalError,

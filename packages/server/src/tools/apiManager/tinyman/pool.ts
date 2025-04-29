@@ -5,7 +5,7 @@ import { env } from '../../../env.js';
 
 export const poolTools: Tool[] = [
   {
-    name: 'api_tinyman_get_pool',
+    name: 'tinyman_get_pool',
     description: 'Get Tinyman pool information by asset pair',
     inputSchema: {
       type: 'object',
@@ -38,7 +38,7 @@ export async function handlePoolTools(args: any): Promise<any> {
     version = 'v2'
   } = args;
 
-  if (name === 'api_tinyman_get_pool') {
+  if (name === 'tinyman_get_pool') {
     try {
       // Get pool information
       const poolInfo = await (version === 'v2' 

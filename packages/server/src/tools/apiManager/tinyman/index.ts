@@ -23,38 +23,38 @@ export async function handleTinymanTools(name: string, args: any): Promise<any> 
   try {
     const combinedArgs = { name, ...args };
     // Pool analytics tools (must come before pool tools due to prefix matching)
-    if (name.startsWith('api_tinyman_get_pool_analytics')) {
+    if (name.startsWith('tinyman_get_pool_analytics')) {
       return handleAnalyticsTools(combinedArgs);
     }
     
     // Pool creation tools (must come before pool tools due to prefix matching)
-    if (name.startsWith('api_tinyman_get_pool_creation')) {
+    if (name.startsWith('tinyman_get_pool_creation')) {
       return handleBootstrapTools(combinedArgs);
     }
 
     // Pool tools
-    if (name.startsWith('api_tinyman_get_pool')) {
+    if (name.startsWith('tinyman_get_pool')) {
       return handlePoolTools(combinedArgs);
     }
 
     // Remove liquidity tools (must come before liquidity tools due to prefix matching)
-    if (name.startsWith('api_tinyman_get_remove_liquidity')) {
+    if (name.startsWith('tinyman_get_remove_liquidity')) {
       return handleRemoveLiquidityTools(combinedArgs);
     }
 
     // Liquidity tools
-    if (name.startsWith('api_tinyman_get_liquidity')) {
+    if (name.startsWith('tinyman_get_liquidity')) {
       return handleLiquidityTools(combinedArgs);
     }
 
     // Swap tools
-    if (name.startsWith('api_tinyman_get_swap')) {
+    if (name.startsWith('tinyman_get_swap')) {
       return handleSwapTools(combinedArgs);
     }
 
     // Opt-in tools
-    if (name.startsWith('api_tinyman_get_asset_optin') ||
-        name.startsWith('api_tinyman_get_validator_opt')) {
+    if (name.startsWith('tinyman_get_asset_optin') ||
+        name.startsWith('tinyman_get_validator_opt')) {
       return handleOptInTools(combinedArgs);
     }
 

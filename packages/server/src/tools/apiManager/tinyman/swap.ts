@@ -16,7 +16,7 @@ async function getAssetDecimals(assetId: number): Promise<number> {
 
 export const swapTools: Tool[] = [
   {
-    name: 'api_tinyman_get_swap_quote',
+    name: 'tinyman_get_swap_quote',
     description: 'Get quote for swapping assets',
     inputSchema: {
       type: 'object',
@@ -60,7 +60,7 @@ export async function handleSwapTools(args: any): Promise<any> {
     version = 'v2'
   } = args;
 
-  if (name === 'api_tinyman_get_swap_quote') {
+  if (name === 'tinyman_get_swap_quote') {
     try {
       // Get pool information first
       const poolInfo = await (version === 'v2' 

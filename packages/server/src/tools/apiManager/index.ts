@@ -14,7 +14,7 @@ export async function handleApiManager(name: string, args: any): Promise<any> {
     let response;
 
     // Tinyman tools
-    if (name.startsWith('api_tinyman_')) {
+    if (name.startsWith('tinyman_')) {
       response = await handleTinymanTools(name, args);
     } else {
       throw new McpError(
