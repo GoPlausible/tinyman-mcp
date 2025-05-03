@@ -43,5 +43,5 @@ export const env: EnvConfig = {
   algorand_algod_port: getEnvVar('algorand_algod_port'),
   algorand_token: getEnvVar('algorand_token'),
   goplausible_account: getEnvVar('goplausible_account') as string,
-: getEnvVar('algorand_agent_wallet') as string,
+  algorand_agent_wallet: getEnvVar('algorand_agent_wallet') as string,
 };

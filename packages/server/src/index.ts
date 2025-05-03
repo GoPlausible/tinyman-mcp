@@ -21,7 +21,7 @@ class AlgorandMcpServer {
   private server: Server;
   private name: string;
 
-  constructor(name = 'algorand-mcp-server', version = '1.0.0') {
+  constructor(name = 'tinyman-mcp-server', version = '1.4.0') {
     this.name = name;
     this.server = new Server(
       {
