@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/goplausible-tinyman-mcp-badge.png)](https://mseep.ai/app/goplausible-tinyman-mcp)
+
 # Tinyman MCP
 
 A Model Context Protocol (MCP) implementation for [Tinyman](https://tinyman.org) on Algorand, built by [GoPlausible](https://github.com/GoPlausible).
