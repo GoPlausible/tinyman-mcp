@@ -152,7 +152,13 @@ export async function handleSwapTools(args: any): Promise<any> {
         }
       }
 
-      return quote;
+      return {
+         content: [{
+          type: 'text',
+          text: JSON.stringify(quote, null, 2)
+        }]
+      };
+      
     } catch (error) {
       throw new McpError(
         ErrorCode.InternalError,

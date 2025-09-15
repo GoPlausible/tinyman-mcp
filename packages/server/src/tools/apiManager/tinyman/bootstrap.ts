@@ -73,12 +73,18 @@ export async function handleBootstrapTools(args: any): Promise<any> {
             initiatorAddr
           }));
 
-      return {
+      const res =  {
         version,
         asset1Id,
         asset2Id,
         transactionCount: quote.length,
         estimatedFees: quote.reduce((sum, txn) => sum + txn.txn.fee, 0)
+      };
+      return {
+         content: [{
+          type: 'text',
+          text: JSON.stringify(res, null, 2)
+        }]
       };
     } catch (error) {
       throw new McpError(

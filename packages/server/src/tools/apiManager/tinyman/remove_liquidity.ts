@@ -149,9 +149,15 @@ export async function handleRemoveLiquidityTools(args: any): Promise<any> {
       };
       
       // Convert BigInt values to strings before returning
-      return JSON.parse(JSON.stringify(result, (_, value) =>
+      const res =  JSON.parse(JSON.stringify(result, (_, value) =>
         typeof value === 'bigint' ? value.toString() : value
       ));
+      return {
+         content: [{
+          type: 'text',
+          text: JSON.stringify(res, null, 2)
+        }]
+      };
     } catch (error) {
       throw new McpError(
         ErrorCode.InternalError,

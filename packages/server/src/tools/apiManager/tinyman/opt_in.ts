@@ -101,11 +101,17 @@ export async function handleOptInTools(args: any): Promise<any> {
       );
     }
 
-    return {
+    const res =  {
         version,
         initiatorAddr,
         transactionCount: quote.length,
         estimatedFees: quote.reduce((sum, txn) => sum + txn.txn.fee, 0)
+      };
+      return {
+         content: [{
+          type: 'text',
+          text: JSON.stringify(res, null, 2)
+        }]
       };
   } catch (error) {
     throw new McpError(

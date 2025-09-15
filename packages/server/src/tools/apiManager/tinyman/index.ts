@@ -63,7 +63,7 @@ export async function handleTinymanTools(name: string, args: any): Promise<any> 
     if (name.startsWith('tinyman_get_asset_optin') ||
         name.startsWith('tinyman_get_validator_opt')) {
       const response =  handleOptInTools(combinedArgs);
-      return ResponseProcessor.processResponse(response, args?.pageToken);
+      return response
     }
 
     throw new McpError(
