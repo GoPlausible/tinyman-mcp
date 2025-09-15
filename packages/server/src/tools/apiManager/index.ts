@@ -1,7 +1,7 @@
 
 import { tinymanTools, handleTinymanTools } from './tinyman/index.js';
 import { ErrorCode, McpError } from '@modelcontextprotocol/sdk/types.js';
-import { ResponseProcessor } from '../../utils/responseProcessor.js';
+
 
 // Combine all API tools
 export const apiManager = [
@@ -24,7 +24,7 @@ export async function handleApiManager(name: string, args: any): Promise<any> {
     }
 
     // Process and format the response
-    return ResponseProcessor.processResponse(response, args?.pageToken);
+    return response
 
   } catch (error) {
     if (error instanceof McpError) {
